@@ -11,8 +11,12 @@
      build:
        html:
          # Build the site
-         - myst build --html
+         - cd docs/ && myst build --html
+         - ls -lah
+         - pwd
      post_build:
          # Copy generated files into Read the Docs directory
-         - mkdir -p $READTHEDOCS_OUTPUT
-         - mv ./_build/html $READTHEDOCS_OUTPUT/html
+         - mkdir --parents $READTHEDOCS_OUTPUT/html/
+         - cp --recursive docs/_build/html/* $READTHEDOCS_OUTPUT/html/
+         - ls -lah
+         - pwd
