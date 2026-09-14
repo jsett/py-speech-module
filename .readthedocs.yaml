@@ -11,7 +11,7 @@
      build:
        html:
          # Build the site
-         - cd docs/ && myst build --html
+         - cd docs/ && BASE_URL="en/latest/" myst build --html
      post_build:
          # Copy generated files into Read the Docs directory
          - mkdir --parents $READTHEDOCS_OUTPUT/html/
