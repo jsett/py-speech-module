@@ -1,1 +1,1 @@
-Intro.
+py-speech-module, is a framework for creating speechd module in python without having to implement the speechd protocol your self.

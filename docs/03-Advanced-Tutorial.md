@@ -12,6 +12,10 @@ python3.12 -m venv venv
 source venv/bin/activate
 ```
 
+:::{note}
+In this case we are using python 3.12. As of writing this, 3.14 is somewhat painful to use due to having to build many packages, I would recommend 3.12 for now.
+:::
+
 ## Install dependencies.
 
 ```bash
@@ -218,3 +222,39 @@ SpeechServer().start(KokoroDispatch())
 ```
 
 Finally we start the server and pass a instance of the class.
+
+## Setup your config.
+
+Now you need to make the file executable
+
+```bash
+chmod +x kokoro.py
+```
+
+Finally add a configure line to speechd. speechd's configure file is usually found in `~/.config/speech-dispatcher/speechd.conf`, but may be in a different location depending on your distro.
+
+```{code}
+:filename: speechd.conf
+Timeout 0
+AddModule "kokoropy" "/home/user/src/kokoro_speechd_module/kokoro.py" "kokoropy.conf"
+```
+
+:::{warning}
+You should change `/home/user/src/kokoro_speechd_module/kokoro.py` to match your path.
+:::
+
+## Testing the module
+
+First stop any running speech-dispatch processes.
+
+```bash
+pkill -9 speech-dispatch
+```
+
+Then send a speak command to speechd using `spd-say`.
+
+```bash
+spd-say -o "kokoropy" -y "en" "Hello world."
+```
+
+You should hear it speaking.
