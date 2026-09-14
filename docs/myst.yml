@@ -1,0 +1,15 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 5b4e332b-39a4-4cfa-9921-afbd0f39cad3
+  title: "py-speech-module"
+  description: "A framework for writing python speechd modules."
+  # keywords: []
+  # authors: []
+  github: https://github.com/jsett/py-speech-module
+  # To autogenerate a Table of Contents, run "myst init --write-toc"
+site:
+  template: book-theme
+  options:
+  #   favicon: favicon.ico
+    logo: site_logo.svg
