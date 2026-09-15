@@ -12,7 +12,7 @@ If you have not already see the Basic_Tutorial for a more detailed explaintion o
     pip install --upgrade pip setuptools wheel
     pip install py-speech-module soundfile
 
-You need to {download}`./deep_learning.wav` and make sure the name it ``deep_learning.wav``.
+You need to `download <https://github.com/jsett/py-speech-module/raw/refs/heads/main/docs/source/deep_learning.wav>`_ and make sure the name it ``deep_learning.wav``.
 
 .. code-block:: python3
     :caption: dummy.py
