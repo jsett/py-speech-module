@@ -1,24 +1,13 @@
- version: 2
+version: "2"
 
- build:
-   os: ubuntu-lts-latest
-   tools:
-     nodejs: "latest"
-   jobs:
-     install:
-       # Install mystmd dependencies
-       - npm install -g mystmd
-     build:
-       html:
-         # Build the site
-         - cd docs/ && myst build --html
-         - ls -lah
-         - pwd
-     post_build:
-         # Copy generated files into Read the Docs directory
-         - mkdir --parents $READTHEDOCS_OUTPUT/html/
-         - cp --recursive docs/_build/html/* "$READTHEDOCS_OUTPUT/html/"
-         - ls -lah
-         - pwd
-         - ls -lah docs/_build/html/*
-         - ls -lah $READTHEDOCS_OUTPUT/html/
+build:
+  os: "ubuntu-22.04"
+  tools:
+    python: "3.10"
+
+python:
+  install:
+    - requirements: docs/requirements.txt
+
+sphinx:
+  configuration: docs/source/conf.py
